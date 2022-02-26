@@ -1,0 +1,68 @@
+body {
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./esc.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.all {
+    width: 75vw;
+    height: 80vh;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(135, 178, 235);
+}
+
+h1 {
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.add {
+    width: 90%;
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter {
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.filtercountry, .filterartist {
+    width: 40%;
+}
+
+#reset {
+    width: 20%;
+    height: 5vh;
+    margin-top: 5px;
+}
+
+.add input{
+    width: 20%;
+    height: 5vh;
+    margin-bottom: 5px;
+}
+
+.filter input{
+    width: 70%;
+    height: 5vh;
+    margin-top: 5px;
+}
+
+.add button, .filter button {
+    height: 5vh;
+    margin-bottom: 5px;
+}
