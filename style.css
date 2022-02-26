@@ -65,7 +65,7 @@ h1 {
 }
 
 .filter input{
-    width: 70%;
+    width: 80%;
     height: 5vh;
     margin-top: 5px;
     border: 0px solid rgba(255, 0, 0, 0);
@@ -99,13 +99,11 @@ button:hover {
     width: 90%;
     height: 65%;
     margin-top: 2vh;
-    padding: 20px;
-    overflow: scroll;
+    overflow: auto;
     box-sizing: border-box;
     background-color: white;
     border-radius: 5px;
     font-family: helvetica;
-    /* grid-template-rows: i?; */
 }
 
 .description {
@@ -114,15 +112,18 @@ button:hover {
     background-color: lightgray;
     padding: 2vh;
     margin-bottom: 10px;
-    border-radius: 5px;
     font-weight: bold;
     text-align: center;
+    position: sticky;
+    top: 0;
 }
 
 .winneritem {
     display: grid;
     grid-template-columns: repeat(6, 1fr); 
     padding: 2vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
     border-bottom: 1px solid black;
 }
 
