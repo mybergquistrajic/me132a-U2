@@ -29,7 +29,7 @@ h1 {
     background-color: rgb(135, 178, 235);
 }
 
-.add {
+form {
     width: 90%;
     border-bottom: 1px solid black;
     display: flex;
@@ -37,7 +37,7 @@ h1 {
     align-items: center;
 }
 
-.add input{
+form input{
     width: 20%;
     height: 5vh;
     margin-bottom: 5px;
@@ -73,7 +73,7 @@ h1 {
 }
 
 /* –––––––––––––––– Buttons –––––––––––––––– */
-.add button, .filter button {
+form button, .filter button {
     height: 5vh;
     margin-bottom: 5px;
     border: 0px solid rgba(255, 0, 0, 0);
@@ -95,7 +95,7 @@ button:hover {
 
 /* –––––––––––––––– Result / Database –––––––––––––––– */
 
-.result {
+.render {
     width: 90%;
     height: 65%;
     margin-top: 2vh;

@@ -13,13 +13,13 @@
 <body>
     <div class="all">
         <h1>Eurovision Song Contest Winners</h1>
-        <div class="add">
-            <input type="text" placeholder="Country">
-            <input type="text" placeholder="Song">
-            <input type="text" placeholder="Artist">
-            <input type="number" placeholder="Year">
-            <button id="add" type="button">Add winner</button>
-        </div>
+        <form>
+            <input type="text" id="country" placeholder="Country">
+            <input type="text" id="song" placeholder="Song">
+            <input type="text" id="artist" placeholder="Artist">
+            <input type="number" id="year" placeholder="Year">
+            <button>Add winner</button>
+        </form>
         <div class="filter">
             <div class="filtercountry">
                 <input type="text" placeholder="Filter by Country">
@@ -31,7 +31,7 @@
             </div>
             <button id="reset" type="button">Reset filter</button>
         </div>
-        <div class="result">
+        <div class="render">
             <div class="description">
                 <div class="number">Nr in list</div>
                 <div class="country">Country</div>
@@ -40,13 +40,15 @@
                 <div class="year">Year</div>
                 <div class="year">Actions</div>
             </div>
-            <div class="winneritem">
-                <div class="number">1</div>
-                <div class="country">Italy</div>
-                <div class="artist">Måneskin</div>
-                <div class="song">Zitti E Buoni</div>
-                <div class="year">2021</div>
-                <button id="delete" type="button">Remove winner</button>
+            <div class="result">
+                <div class="winneritem">
+                    <div class="number">1</div>
+                    <div class="country">Italy</div>
+                    <div class="artist">Måneskin</div>
+                    <div class="song">Zitti E Buoni</div>
+                    <div class="year">2021</div>
+                    <button id="delete" type="button">Remove winner</button>
+                </div>
             </div>
         </div>
     </div>
