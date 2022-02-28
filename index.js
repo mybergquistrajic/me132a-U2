@@ -68,6 +68,7 @@ function renderWinner(winner) {
 // Renders all winners in the database
 function renderWinners() {
     let winnersElement = document.getElementById("result");
+    winnersElement.innerHTML = "";
 
     // Loops through the database, renders a winner and appends it
     for (let i = 0; i < database.length; i++) {
