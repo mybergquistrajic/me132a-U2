@@ -16,7 +16,7 @@ function addWinner(id, country, artist, song, year) {
 
 function onAddWinner(event) {
     event.preventDefault();
-    let id = "?"
+    let id = database[database.length - 1].id + 1;
     let country = document.getElementById("country").value;
     let artist = document.getElementById("artist").value;
     let song = document.getElementById("song").value;
