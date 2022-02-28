@@ -32,9 +32,10 @@ function onAddWinner(event) {
         document.getElementById("year").value.length == 0
     ) { alert(`You've missed filling one or more input fields`); }
 
-    // Pushes object to the database
+    // Pushes object to the database and renders the winners (database)
     else {
         database.push(newWinner);
+        renderWinners();
         //Resets form after adding to database
         let form = document.querySelector("form");
         form.reset();
@@ -47,4 +48,35 @@ function setAddWinnerHandler() {
 }
 
 
-setAddWinnerHandler()
+/* –––––––– Render ––––––––– */
+
+// Renders a winner
+function renderWinner(winner) {
+    let div = document.createElement("div");
+    div.classList.add("winneritem");
+    div.innerHTML = `
+        <div>${winner + 1}</div>
+        <div>${database[winner].country}</div>
+        <div>${database[winner].artist}</div>
+        <div>${database[winner].song}</div>
+        <div>${database[winner].year}</div>
+        <button id="delete" type="button">Remove winner</button>
+    `
+    return div;
+}
+
+// Renders all winners in the database
+function renderWinners() {
+    let winnersElement = document.getElementById("result");
+
+    // Loops through the database, renders a winner and appends it
+    for (let i = 0; i < database.length; i++) {
+        let winnerElement = renderWinner(i);
+        winnersElement.appendChild(winnerElement);
+    }
+}
+
+
+/* –––––––– Initialization ––––––––– */
+setAddWinnerHandler();
+renderWinners();

@@ -70,5 +70,5 @@ let database = [
         artist: "Milk and Honey",
         song: "Hallelujah",
         year: 1979,
-    },
+    }
 ]
