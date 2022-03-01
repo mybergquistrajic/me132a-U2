@@ -1,6 +1,6 @@
 "use strict"
 
-/* –––––––– Form ––––––––– */
+/* –––––––– Add Winner Form ––––––––– */
 
 // Creates a new winner (object) and returns it
 function addWinner(id, country, artist, song, year) {
@@ -37,16 +37,58 @@ function onAddWinner(event) {
         database.push(newWinner);
         renderWinners();
         //Resets form after adding to database
-        let form = document.querySelector("form");
+        let form = document.getElementById("add-winner");
         form.reset();
     }
 }
 
 function setAddWinnerHandler() {
-    let form = document.querySelector("form");
+    let form = document.getElementById("add-winner");
     form.addEventListener("submit", onAddWinner);
 }
 
+
+/* –––––––– Filter ––––––––– */
+
+// Filter winners by country
+function onFilterByCountry(event) {
+    event.preventDefault();
+    let country = document.getElementById("filtercountryinput").value;
+    let winner = getWinnerByCountry(database, country);
+    renderWinners(winner);
+}
+
+function getWinnerByCountry(winners, country) {
+    let winnersByCountry = [];
+
+    for (let winner of winners) {
+        if (winner.country.toLowerCase() == country.toLowerCase()) {
+            winnersByCountry.push(winner);
+        }
+    }
+
+    return winnersByCountry;
+}
+
+
+function onFilterByArtist(event) {
+
+}
+function onResetClick(event) {
+
+}
+
+
+function setFilterWinnerHandlers() {
+    let countryForm = document.getElementById("filtercountry");
+    let artistForm = document.getElementById("filterartist");
+    let resetBTN = document.getElementById("reset");
+
+    countryForm.addEventListener("submit", onFilterByCountry);
+    artistForm.addEventListener("submit", onFilterByArtist);
+    resetBTN.addEventListener("click", onResetClick);
+
+}
 
 /* –––––––– Render ––––––––– */
 
@@ -67,7 +109,7 @@ function renderWinner(winner) {
 }
 
 // Renders all winners in the database
-function renderWinners() {
+function renderWinners(database) {
     let winnersElement = document.getElementById("result");
     winnersElement.innerHTML = "";
 
@@ -115,6 +157,8 @@ function setRemoveWinnerHandlers() {
     }
 }
 
+
 /* –––––––– Initialization / Direct code ––––––––– */
 setAddWinnerHandler();
-renderWinners();
+renderWinners(database);
+setFilterWinnerHandlers();

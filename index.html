@@ -13,7 +13,7 @@
 <body>
     <div class="all">
         <h1>Eurovision Song Contest Winners</h1>
-        <form>
+        <form id="add-winner">
             <input type="text" id="country" placeholder="Country">
             <input type="text" id="song" placeholder="Song">
             <input type="text" id="artist" placeholder="Artist">
@@ -21,14 +21,14 @@
             <button>Add winner</button>
         </form>
         <div class="filter">
-            <div class="filtercountry">
-                <input type="text" placeholder="Filter by Country">
-                <button id="filtercountryBTN" type="button">Filter</button>
-            </div>
-            <div class="filterartist">
+            <form id="filtercountry">
+                <input id="filtercountryinput" type="text" placeholder="Filter by Country">
+                <button>Filter</button>
+            </form>
+            <form id="filterartist">
                 <input type="text" placeholder="Filter by Artist">
-                <button id="filterartistBTN" type="button">Filter</button>
-            </div>
+                <button>Filter</button>
+            </form>
             <button id="reset" type="button">Reset filter</button>
         </div>
         <div class="render">
