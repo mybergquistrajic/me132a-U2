@@ -35,7 +35,7 @@ function onAddWinner(event) {
     // Pushes object to the database and renders the winners (database)
     else {
         database.push(newWinner);
-        renderWinners();
+        renderWinners(database);
         //Resets form after adding to database
         let form = document.getElementById("add-winner");
         form.reset();
@@ -58,16 +58,16 @@ function onFilterByCountry(event) {
     renderWinners(winner);
 }
 
+// Returns winners by country
 function getWinnerByCountry(winners, country) {
     let winnersByCountry = [];
-
     for (let winner of winners) {
         if (winner.country.toLowerCase() == country.toLowerCase()) {
             winnersByCountry.push(winner);
         }
     }
-
     return winnersByCountry;
+
 }
 
 
@@ -75,7 +75,7 @@ function onFilterByArtist(event) {
 
 }
 function onResetClick(event) {
-
+    renderWinners(database);
 }
 
 
@@ -93,7 +93,7 @@ function setFilterWinnerHandlers() {
 /* –––––––– Render ––––––––– */
 
 // Renders a winner
-function renderWinner(winner) {
+function renderWinner(database, winner) {
     let div = document.createElement("div");
     div.classList.add("winneritem");
     div.id = database[winner].id;
@@ -108,6 +108,8 @@ function renderWinner(winner) {
     return div;
 }
 
+
+
 // Renders all winners in the database
 function renderWinners(database) {
     let winnersElement = document.getElementById("result");
@@ -115,7 +117,7 @@ function renderWinners(database) {
 
     // Loops through the database, renders a winner and appends it
     for (let i = 0; i < database.length; i++) {
-        let winnerElement = renderWinner(i);
+        let winnerElement = renderWinner(database, i);
         winnersElement.appendChild(winnerElement);
     }
 
@@ -162,3 +164,4 @@ function setRemoveWinnerHandlers() {
 setAddWinnerHandler();
 renderWinners(database);
 setFilterWinnerHandlers();
+
