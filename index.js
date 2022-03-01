@@ -54,6 +54,7 @@ function setAddWinnerHandler() {
 function renderWinner(winner) {
     let div = document.createElement("div");
     div.classList.add("winneritem");
+    div.id = database[winner].id;
     div.innerHTML = `
         <div>${winner + 1}</div>
         <div>${database[winner].country}</div>
@@ -75,9 +76,45 @@ function renderWinners() {
         let winnerElement = renderWinner(i);
         winnersElement.appendChild(winnerElement);
     }
+
+    // Sets remove-buttons
+    setRemoveWinnerHandlers();
 }
 
 
-/* –––––––– Initialization ––––––––– */
+/* –––––––– Remove / Delete winner ––––––––– */
+
+// Removes winner based on ID
+function removeWinnerById(winners, id) {
+    for (let i = 0; i < winners.length; i++) {
+        let winner = winners[i];
+        if (winner.id == id) {
+            winners.splice(i, 1);
+            return;
+        }
+    }
+}
+
+// When the user clicks on the remove-button
+function onRemoveWinner(event) {
+    let button = event.target;
+    let id = button.parentElement.id;
+    removeWinnerById(database, id);
+
+    // Renders database again after every removal/button-click
+    renderWinners(database);
+}
+
+// Adds event handler buttons
+function setRemoveWinnerHandlers() {
+    let buttons = document.querySelectorAll("#delete");
+
+    // Iterates and adds event listner to every remove-button
+    for (let button of buttons) {
+        button.addEventListener("click", onRemoveWinner);
+    }
+}
+
+/* –––––––– Initialization / Direct code ––––––––– */
 setAddWinnerHandler();
 renderWinners();
