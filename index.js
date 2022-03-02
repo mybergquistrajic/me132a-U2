@@ -16,7 +16,7 @@ function addWinner(id, country, artist, song, year) {
 
 function onAddWinner(event) {
     event.preventDefault();
-    let id = database[database.length - 1].id + 1;
+    let id = getID();
     let country = document.getElementById("country").value;
     let artist = document.getElementById("artist").value;
     let song = document.getElementById("song").value;
@@ -39,6 +39,17 @@ function onAddWinner(event) {
         //Resets form after adding to database
         let form = document.getElementById("add-winner");
         form.reset();
+    }
+}
+
+// Creates ID for winner
+function getID() {
+    // If database is empty, start from 1. (Unable to add new winners to empty database otherwise)
+    if (database.length == 0) {
+        return 1;
+    }
+    else {
+        return database[database.length - 1].id + 1;
     }
 }
 
