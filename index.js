@@ -14,8 +14,11 @@ function addWinner(id, country, artist, song, year) {
     return winner;
 }
 
+// When the user submits the "Add Winner" form
 function onAddWinner(event) {
     event.preventDefault();
+
+    // Creates an ID and stores the values from the input fields 
     let id = getID();
     let country = document.getElementById("country").value;
     let artist = document.getElementById("artist").value;
@@ -36,6 +39,7 @@ function onAddWinner(event) {
     else {
         database.push(newWinner);
         renderWinners(database);
+
         //Resets form after adding to database
         let form = document.getElementById("add-winner");
         form.reset();
@@ -53,6 +57,7 @@ function getID() {
     }
 }
 
+// Adds winner handler
 function setAddWinnerHandler() {
     let form = document.getElementById("add-winner");
     form.addEventListener("submit", onAddWinner);
@@ -106,7 +111,7 @@ function onResetClick(event) {
     renderWinners(database);
 }
 
-
+// Adds filter handlers
 function setFilterWinnerHandlers() {
     let countryForm = document.getElementById("filtercountry");
     let artistForm = document.getElementById("filterartist");
@@ -117,6 +122,7 @@ function setFilterWinnerHandlers() {
     resetBTN.addEventListener("click", onResetClick);
 
 }
+
 
 /* –––––––– Render ––––––––– */
 
@@ -136,8 +142,6 @@ function renderWinner(database, winner) {
     return div;
 }
 
-
-
 // Renders all winners in the database
 function renderWinners(database) {
     let winnersElement = document.getElementById("result");
@@ -149,7 +153,7 @@ function renderWinners(database) {
         winnersElement.appendChild(winnerElement);
     }
 
-    // Sets remove-buttons
+    // Remove-buttons handlers
     setRemoveWinnerHandlers();
 }
 
@@ -190,6 +194,7 @@ function setRemoveWinnerHandlers() {
 
 
 /* –––––––– Initialization / Direct code ––––––––– */
+
 setAddWinnerHandler();
 renderWinners(database);
 setFilterWinnerHandlers();
