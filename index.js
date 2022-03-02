@@ -99,8 +99,10 @@ function getWinnerByArtist(winners, artist) {
     return winnersByArtist;
 }
 
-// Resets filter
+// Resets filter – Empties filter inputs and renders database
 function onResetClick(event) {
+    document.getElementById("filtercountryinput").value = "";
+    document.getElementById("filterartistinput").value = "";
     renderWinners(database);
 }
 
@@ -169,10 +171,11 @@ function removeWinnerById(winners, id) {
 function onRemoveWinner(event) {
     let button = event.target;
     let id = button.parentElement.id;
-    removeWinnerById(database, id);
-
-    // Renders database again after every removal/button-click
-    renderWinners(database);
+    if (confirm(`Are you sure you want to remove the winner from the database?`)) {
+        removeWinnerById(database, id);
+        // Renders database again after every removal/button-click
+        renderWinners(database);
+    }
 }
 
 // Adds event handler buttons
