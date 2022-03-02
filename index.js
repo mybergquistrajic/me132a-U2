@@ -71,6 +71,7 @@ function onFilterByCountry(event) {
     event.preventDefault();
     let country = document.getElementById("filtercountryinput").value;
     let winner = getWinnerByCountry(database, country);
+    document.getElementById("filterartistinput").value = "";
     renderWinners(winner);
 }
 
@@ -90,6 +91,7 @@ function onFilterByArtist(event) {
     event.preventDefault();
     let artist = document.getElementById("filterartistinput").value;
     let winner = getWinnerByArtist(database, artist);
+    document.getElementById("filtercountryinput").value = "";
     renderWinners(winner);
 }
 
