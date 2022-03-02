@@ -67,13 +67,28 @@ function getWinnerByCountry(winners, country) {
         }
     }
     return winnersByCountry;
-
 }
 
-
+// Filter winners by artist
 function onFilterByArtist(event) {
-
+    event.preventDefault();
+    let artist = document.getElementById("filterartistinput").value;
+    let winner = getWinnerByArtist(database, artist);
+    renderWinners(winner);
 }
+
+// Returns winners by artist
+function getWinnerByArtist(winners, artist) {
+    let winnersByArtist = [];
+    for (let winner of winners) {
+        if (winner.artist.toLowerCase() == artist.toLowerCase()) {
+            winnersByArtist.push(winner);
+        }
+    }
+    return winnersByArtist;
+}
+
+// Resets filter
 function onResetClick(event) {
     renderWinners(database);
 }
